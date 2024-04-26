@@ -36,7 +36,23 @@ const type = () => {
     }
 }
 
+//Tipos de vehiculos
+// const typesCars = (i) => {
+//     let car = {}
+//     switch (i) {
+//         case '1':
+//             car = {
+//                 volumen: 0,
+//             }
+//             Object.setPrototypeOf(car, vehiculo);
+//             return(car)
+//         case '2':
+//             car = {
 
+//             }
+//     }
+    
+// }
 
 let select = confirm('Desea crear un vehiculo?');
 
@@ -45,6 +61,10 @@ if(select){
     let consume = Number(prompt('Ingrese el consumo del vehiculo cada 100Km'));
     let maxSpeed = Number(prompt('Ingrese cual es la velocidad maxima del vehículo'));
     let weigth = Number(prompt('Ingrese el peso del vehiculo en kg'));
+    if(isNaN(consume, maxSpeed, weigth)){
+        alert('ingresaste un valor no valido! vuelve a ingresar correctamente unicamente ingresa numeros');
+        type();
+    }
     
     let car = Object.create(vehiculo);
     car.tipo = ty;
