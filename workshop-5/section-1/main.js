@@ -6,13 +6,31 @@ const obj = {
     edad: 22,
     profesion: 'coder',
     hobbies: 'mecanica',
+    saludar:  () =>{
+        console.log(`Hola ${obj.nombre} ${obj.apellido}`);
+    }
 };
 
-const saludar = () =>{
-    let msn = `Hola ${obj.nombre} ${obj.apellido}`;
-    return console.log(msn);
+
+//Objeto numero 2
+
+const student = {
+    promedio : 3.2,
+    cursos: ['matematicas', 'ingles', 'filosofia'],
+    presentarExament: ()=>{
+        console.log('Presentacion del examen.');
+    }
 }
 
-saludar();
+Object.setPrototypeOf(student, obj);
 
-//Objeto numeor 2.
+obj.saludar = () => {
+    console.log(`Hola ${obj.nombre} ${obj.apellido} ${obj.edad}`);
+}
+
+student.saludar = () => {
+    console.log(`Desde el objeto student los cursos son ${student.cursos}`);
+} 
+
+student.saludar();
+obj.saludar();
