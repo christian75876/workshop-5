@@ -35,3 +35,15 @@ Student.prototype.presentarExamen = function () {
 };
 
 myStuden.presentarExamen()
+
+
+/**PART-2  ########################################################## */
+
+console.log('************************\n************************');
+
+//Reescribiendo un metodo heredado
+Student.prototype.saludar = function(){
+  return `${Person.prototype.saludar.call(this)} y soy un estudiante!`;
+}
+
+console.log(myStuden.saludar());
