@@ -7,15 +7,15 @@ function Person(nombre, edad, email){
     this.email = email;
 };
 
-function Usuario(id, user, password){
-    Person.call(nombre, edad, email);
+function Usuario(id, user, password, nombre, edad, email){
+    Person.call(this, nombre, edad, email);
     this.id = id;
     this.user = user;
     this.password = password;
 }
 
-function Cliente(tel, direccion){
-    Person.call(nombre, edad, email);
+function Cliente(tel, direccion, nombre, edad, email){
+    Person.call(this, nombre, edad, email);
     this.tel = tel;
     this.direccion = direccion;
 }
@@ -27,14 +27,14 @@ function Articulo(precio, cantidad, descripcion){
     this.descripcion = descripcion;
 };
 
-function Producto(color, marca){
-    Articulo.call(precio, cantidad, descripcion);
+function Producto(color, marca, precio, cantidad, descripcion){
+    Articulo.call(this, precio, cantidad, descripcion);
     this.color = color;
     this.marca = marca;
 }
 
-function Pedido(nombreCliente, tel, dir){
-    Producto.call(precio, cantidad, descripcion, color, marca);
+function Pedido(nombreCliente, tel, dir, precio, cantidad, descripcion, color, marca){
+    Producto.call(this, precio, cantidad, descripcion, color, marca);
     this.nombreCliente = nombreCliente;
     this.tel = tel;
     this.dir = dir;
