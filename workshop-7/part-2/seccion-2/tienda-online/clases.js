@@ -1,5 +1,7 @@
 
 
+const listaProducto = []
+
 //Personas y tipos de rolles usuario y cliente!
 function Person(nombre, edad, email){
     this.nombre = nombre;
@@ -40,4 +42,44 @@ function Pedido(nombreCliente, tel, dir, precio, cantidad, descripcion, color, m
     this.dir = dir;
 }
 
-export {Pedido, Producto, Cliente, Usuario};
+/**METODOS */
+
+//CREAR PRODUCTO
+Producto.prototype.crearProducto = function() {
+    let descripcion = prompt('Ingrese la descripción del producto');
+    let precio = Number(prompt('Ingrese el precio de ete producto $:'));
+    let cantidad = Number(prompt('Ingrese la Cantidad de este producto'));
+    let color = prompt('Ingrese el color de este producto');
+    let marca = prompt('Ingrese la marca de este producto');
+    return new Producto(color, marca, precio, cantidad, descripcion);
+    
+}
+
+// let aux = new Producto;
+// aux = aux.crearProducto();
+
+// console.table(aux);
+// console.log(listaProducto);
+
+//ACCEDIENDO A LA HERENCIA Y METODO DE PROTOTIPO!
+Pedido.prototype = Object.create(Producto.prototype);
+Pedido.prototype.constructor = Pedido;
+
+Pedido.prototype.crearProducto = function (){
+    let nombre = prompt('ingrese el nombre del cliente');
+    let dir = prompt('Ingrese la dirección del cliente');
+    let tel = prompt('Ingrese el telefono del cliente')
+    let product =  Producto.prototype.crearProducto.call(this) 
+    return {
+        nombre,
+        dir,
+        tel,
+        product
+    }
+}
+
+let pedidio = new Pedido;
+pedidio = pedidio.crearProducto();
+console.table(pedidio);
+
+
