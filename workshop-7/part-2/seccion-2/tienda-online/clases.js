@@ -3,21 +3,21 @@
 const listaProducto = []
 
 //Personas y tipos de rolles usuario y cliente!
-function Person(nombre, edad, email){
+function Persona(nombre, edad, email){
     this.nombre = nombre;
     this.edad = edad;
     this.email = email;
 };
 
 function Usuario(id, user, password, nombre, edad, email){
-    Person.call(this, nombre, edad, email);
+    Persona.call(this, nombre, edad, email);
     this.id = id;
     this.user = user;
     this.password = password;
 }
 
 function Cliente(tel, direccion, nombre, edad, email){
-    Person.call(this, nombre, edad, email);
+    Persona.call(this, nombre, edad, email);
     this.tel = tel;
     this.direccion = direccion;
 }
@@ -60,6 +60,14 @@ Producto.prototype.crearProducto = function() {
 
 // console.table(aux);
 // console.log(listaProducto);
+
+//HERENCIA DE PERSONA SALUDAR
+Persona.prototype.saludar = function() {
+    return `Hola soy ${this.nombre} mi edad es ${this.edad} y mi email es: ${this.email}`;
+}
+//MODIFICANDO LA HERENCIA DE PERSONA DESDE USUARIO.
+Usuario.prototype = Object.create(Persona.prototype);
+Usuario.prototype.constructor = Usuario
 
 //ACCEDIENDO A LA HERENCIA Y METODO DE PROTOTIPO!
 Pedido.prototype = Object.create(Producto.prototype);
