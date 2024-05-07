@@ -1,0 +1,73 @@
+[
+    {
+      "color": "Azul",
+      "marca": "Nike",
+      "precio": 59.99,
+      "cantidad": 100,
+      "descripcion": "Camiseta deportiva de manga corta"
+    },
+    {
+      "color": "Blanco",
+      "marca": "Adidas",
+      "precio": 39.99,
+      "cantidad": 80,
+      "descripcion": "Zapatillas deportivas para correr"
+    },
+    {
+      "color": "Negro",
+      "marca": "Levi's",
+      "precio": 89.99,
+      "cantidad": 50,
+      "descripcion": "Jeans ajustados de estilo clásico"
+    },
+    {
+      "color": "Gris",
+      "marca": "Puma",
+      "precio": 29.99,
+      "cantidad": 120,
+      "descripcion": "Calcetines deportivos de algodón"
+    },
+    {
+      "color": "Rojo",
+      "marca": "Tommy Hilfiger",
+      "precio": 79.99,
+      "cantidad": 30,
+      "descripcion": "Camisa de vestir de manga larga"
+    },
+    {
+      "color": "Verde",
+      "marca": "Vans",
+      "precio": 49.99,
+      "cantidad": 90,
+      "descripcion": "Zapatillas de lona para el día a día"
+    },
+    {
+      "color": "Amarillo",
+      "marca": "H&M",
+      "precio": 19.99,
+      "cantidad": 70,
+      "descripcion": "Polo casual de algodón"
+    },
+    {
+      "color": "Marrón",
+      "marca": "Ralph Lauren",
+      "precio": 99.99,
+      "cantidad": 40,
+      "descripcion": "Jersey de lana con cuello de pico"
+    },
+    {
+      "color": "Rosa",
+      "marca": "Forever 21",
+      "precio": 14.99,
+      "cantidad": 110,
+      "descripcion": "Falda corta plisada de tela suave"
+    },
+    {
+      "color": "Morado",
+      "marca": "Zara",
+      "precio": 69.99,
+      "cantidad": 60,
+      "descripcion": "Abrigo de invierno acolchado"
+    }
+  ]
+  
