@@ -1,9 +1,10 @@
 export {menu}
+import { Articulo, Cliente, Pedido, Persona, Producto, Usuario, } from "./clases.js";
 
 
 //menu
 const menu = () => {
-    let select = prompt('Ingrese: \n1. para ingresar como Administrador\n2.Para visualizar ropa\n3.compra');
+    let select = prompt('Ingrese: \n1. para ingresar como Administrador\n2.Para visualizar ropa\n3.compra\n4.Pedido');
         switch(select){
             case '1':
                 admin();
@@ -33,6 +34,7 @@ async function dataUsuarios(){
     }
 }
 
+
 //Validacion usuarios
 const admin = async () =>{
     const usuarios = await dataUsuarios();
@@ -59,7 +61,6 @@ async function obtenerDatosDeRopa(){
         console.error('Error', error);
         throw error;
     }
-    menu();
 }
 
 async function manejarDatosDeRopa() {
@@ -69,13 +70,15 @@ async function manejarDatosDeRopa() {
         data.forEach((element, index) => {
             aux[index+1] = element;
         });
-        console.table(aux)
+        console.table(aux);
+        return data
     }catch (error) {
         console.log('Error al manejar los datos:', error);
     }
     menu();
 }
 
+const product = [];
 const articulos = [];
 
 const compra = () => {
@@ -89,3 +92,5 @@ const compra = () => {
     if(aux)compra();
     menu();
 }
+
+
