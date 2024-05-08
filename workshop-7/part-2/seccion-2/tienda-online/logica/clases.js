@@ -37,12 +37,12 @@ function Producto(color, marca, precio, cantidad, descripcion){
     this.marca = marca;
 }
 
-function Pedido(nombreCliente, tel, dir, precio, cantidad, descripcion, color, marca){
-    Producto.call(this, precio, cantidad, descripcion, color, marca);
-    this.nombreCliente = nombreCliente;
-    this.tel = tel;
-    this.dir = dir;
-}
+// function Pedido(nombreCliente, tel, dir, precio, cantidad, descripcion, color, marca){
+//     Producto.call(this, precio, cantidad, descripcion, color, marca);
+//     this.nombreCliente = nombreCliente;
+//     this.tel = tel;
+//     this.dir = dir;
+// }
 
 /**METODOS */
 
@@ -95,6 +95,19 @@ Pedido.prototype.crearProducto = function (){
 // let pedidio = new Pedido;
 // pedidio = pedidio.crearProducto();
 // console.table(pedidio);
+
+/************************************************************************ */
+
+function Pedido(nombreCliente, tel, dir) {
+    this.nombreCliente = nombreCliente;
+    this.tel = tel;
+    this.dir = dir;
+    this.productos = []; // Array para almacenar los productos del pedido
+  }
+  
+  Pedido.prototype.agregarProducto = function(producto) {
+    this.productos.push(producto); // Agregar el producto al array de productos del pedido
+  };
 
 
 export {Articulo, Cliente, Pedido, Persona, Producto, Usuario,}

@@ -11,7 +11,7 @@ import {
 //menu
 const menu = () => {
   let select = prompt(
-    "Ingrese: \n1. para ingresar como Administrador\n2.compra\n4.Pedido"
+    "Ingrese: \n1. para ingresar como Administrador\n2.compra\n3.Pedido"
   );
   switch (select) {
     case "1":
@@ -21,7 +21,7 @@ const menu = () => {
       manejarDatosDeRopa();
       break;
     case "3":
-      compra();
+      pedido();
       break;
     default:
       break;
@@ -116,3 +116,22 @@ const compra = () => {
   }
 };
 
+const pedido = () => {
+  if (Object.keys(product).length > 0) {
+    let nombre = prompt('Ingrese el nombre del cliente');
+    let dir = prompt('Ingrese direccion del cliente');
+    let tel = prompt('Ingrese numero de telefono del cliente')
+    let pedido = new Pedido(nombre, tel, dir); // Crear una instancia de Pedido
+    console.log("Productos seleccionados:");
+    for (const indice of articulos) {
+      let productoSeleccionado = product[indice];
+      console.log(productoSeleccionado);
+      // Agregar el producto seleccionado al pedido
+      pedido.agregarProducto(productoSeleccionado);
+    }
+    console.log("Pedido creado:", pedido);
+  } else {
+    console.log("El carrito de compras está vacío");
+  }
+  menu();
+};
