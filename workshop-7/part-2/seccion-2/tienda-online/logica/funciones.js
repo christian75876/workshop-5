@@ -93,23 +93,26 @@ async function manejarDatosDeRopa() {
 const articulos = [];
 
 const compra = () => {
-  console.table(product);
-  let eleccion = prompt("Ingresa el indice de la prenda que deseas comprar!");
-  let aux2 = 'Azul';
-  if (/^(10|[1-9])$/.test(eleccion)) {
+  console.table(product); 
+  let eleccion = prompt("Ingresa el índice de la prenda que deseas comprar");
+
+  // Verificar si el índice ingresado es válido
+  if (/^\d+$/.test(eleccion) && eleccion >= 1 && eleccion <= Object.keys(product).length) {
+    let productoSeleccionado = product[eleccion];
+    console.log("Producto seleccionado:", productoSeleccionado);
+
+    // Agregar el índice del producto al array de artículos
     articulos.push(eleccion);
-    product.forEach(element => {
-      console.log(element);
-      if(element.color == aux2){
-        console.log('Bien echo')
-      }else{
-        console.log('QUe paso')
-      }
-    })
   } else {
-    alert("As escogido una opción no valida");
+    alert("Has escogido una opción no válida");
   }
-  let aux = confirm("Deseas comprar otro articulo?");
-  if (aux) compra();
-  menu();
+
+  // Preguntar si desea comprar otro artículo
+  let aux = confirm("¿Deseas comprar otro artículo?");
+  if (aux) {
+    compra();
+  } else {
+    menu();
+  }
 };
+
