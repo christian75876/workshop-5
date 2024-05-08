@@ -1,12 +1,5 @@
 export { menu, product };
-import {
-  Articulo,
-  Cliente,
-  Pedido,
-  Persona,
-  Producto,
-  Usuario,
-} from "./clases.js";
+import { Pedido } from "./clases.js";
 
 //menu
 const menu = () => {
@@ -43,7 +36,7 @@ async function dataUsuarios() {
   }
 }
 
-//Validacion usuarios
+//Validacion administrador
 const admin = async () => {
   const usuarios = await dataUsuarios();
   console.log(usuarios);
@@ -52,9 +45,39 @@ const admin = async () => {
   let validarUsuario = usuarios.some((element) => {
     return element.usuario == user && element.contrasena == contrasenia;
   });
-  if (validarUsuario === true) alert("Bienvenido administrador!");
+  if (validarUsuario === true){
+    alert("Bienvenido administrador!");
+    crearUsuario();
+  }
   else alert("As ingresado un valor erroneo");
 };
+
+const crearUsuario = async () => {
+  const nombre = prompt('Ingrese el nombre del usuario:');
+  const contrasena = prompt('Ingrese la contraseña del nuevo usuario:');
+  const nuevoUsuario = {
+    nombre,
+    contrasena
+  };
+  try {
+    const response = await fetch('data/users.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nuevoUsuario)
+    });
+    if (!response.ok) {
+      throw new Error('Error al crear el usuario');
+    }
+    console.log('Usuario creado correctamente');
+  } catch (error) {
+    console.error('Error al crear el usuario:', error);
+  }
+};
+
+
+
 
 //Data de Ropa
 async function obtenerDatosDeRopa() {
